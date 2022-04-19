@@ -1,0 +1,105 @@
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  outline: none;
+  box-shadow: none;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+body {
+  font-family: 'Lora', serif;
+}
+.App {
+  min-height: 100vh;
+  padding: 0 20px 0 20px;
+}
+/* Home */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  height: 100vh;
+}
+
+.home_title {
+  margin-bottom: 120px;
+}
+
+.home_title h1 {
+  font-size: 70px;
+  font-weight: 400;
+}
+
+.home_title h3 {
+  font-size: 28px;
+  opacity: 0.7;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.home button {
+  font-size: 25px;
+  cursor: pointer;
+  margin-bottom: 100px;
+  opacity: 0.65;
+}
+
+.home h5 {
+  opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+  .home_title h1 {
+    font-size: 32px;
+  }
+
+  .home_title h3 {
+    font-size: 18px;
+  }
+
+  .home button {
+    font-size: 20px;
+    margin-bottom: 100px;
+    opacity: 0.6;
+  }
+}
