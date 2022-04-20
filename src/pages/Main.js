@@ -1,11 +1,14 @@
 import Button from '../components/Button';
+import Header from '../components/Header';
 
 const Main = () => {
   return (
     <div>
-      <Button text={'<'} onClick={() => alert('버튼')} />
-      <Button text={'>'} onClick={() => alert('버튼')} type="success" />
-      <Button text={'버튼'} onClick={() => alert('버튼')} type="cancel" />
+      <Header
+        left={<Button text={'<'} />}
+        text={2022}
+        right={<Button text={'>'} />}
+      />
     </div>
   );
 };
