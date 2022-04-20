@@ -44,11 +44,37 @@ button {
 
 body {
   font-family: 'Lora', serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2efe9;
 }
+
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* App */
 .App {
   min-height: 100vh;
-  padding: 0 20px 0 20px;
+  padding: 0 20px;
 }
+
+@media (min-width: 650px) {
+  .App {
+    width: 700px;
+  }
+}
+
+@media (max-width: 650px) {
+  .App {
+    width: 90vw;
+  }
+}
+
 /* Home */
 .home {
   display: flex;
@@ -68,23 +94,32 @@ body {
 .home_title h1 {
   font-size: 70px;
   font-weight: 400;
+  text-shadow: 0 14px 12px #5e728c;
 }
 
 .home_title h3 {
   font-size: 28px;
   opacity: 0.7;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .home button {
   font-size: 25px;
   cursor: pointer;
   margin-bottom: 100px;
-  opacity: 0.65;
+  opacity: 0.7;
+  transition: color 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.home button:hover {
+  color: #465259;
+  transform: scale(1.2);
 }
 
 .home h5 {
+  font-size: 16px;
   opacity: 0.5;
 }
 
@@ -100,6 +135,9 @@ body {
   .home button {
     font-size: 20px;
     margin-bottom: 100px;
-    opacity: 0.6;
+  }
+
+  .home h5 {
+    font-size: 14px;
   }
 }
