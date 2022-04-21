@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from './Button';
 
 const sortOptionList = [
   { value: 'lastest', name: '최신 순' },
@@ -14,7 +15,11 @@ const emotionOptionList = [
 
 const ControlMenu = ({ value, onChange, optionList }) => {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)}>
+    <select
+      className="ControlMenu"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
       {optionList.map((list, idx) => (
         <option key={idx} value={list.value}>
           {list.name}
@@ -61,18 +66,36 @@ const MemoryList = ({ memoryData }) => {
 
   return (
     <div className="MemoryList">
-      <button onClick={() => navigate('/')}>홈으로</button>
-      <ControlMenu
-        value={sortType}
-        onChange={setSortType}
-        optionList={sortOptionList}
-      />
+      <div className="menu_wrap">
+        <div className="left">
+          <button
+            className="home_btn  Button_default"
+            onClick={() => navigate('/')}
+          >
+            H
+          </button>
+          <ControlMenu
+            value={sortType}
+            onChange={setSortType}
+            optionList={sortOptionList}
+          />
 
-      <ControlMenu
-        value={emotionType}
-        onChange={setEmotionType}
-        optionList={emotionOptionList}
-      />
+          <ControlMenu
+            value={emotionType}
+            onChange={setEmotionType}
+            optionList={emotionOptionList}
+          />
+        </div>
+
+        <div className="right">
+          <Button
+            type={'success'}
+            text={'새 메모리 작성'}
+            onClick={() => navigate('/new')}
+          />
+        </div>
+      </div>
+
       {memoryOrder().map((list) => (
         <div key={list.id}>
           <h4>{list.title}</h4>

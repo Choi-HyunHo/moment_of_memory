@@ -156,6 +156,18 @@ body {
   transform: translateY(-7px);
 }
 
+.home_btn {
+  width: 50px;
+  height: 45px;
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
 /* Header component */
 .Header {
   display: flex;
@@ -167,6 +179,33 @@ body {
 
 .Header .Header_text {
   font-size: 24px;
+}
+
+/*ControlMenu */
+
+.ControlMenu {
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* MemoryList */
+.MemoryList .menu_wrap {
+  margin: 20px 0 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.MemoryList .menu_wrap .right {
+  flex-grow: 1;
+}
+
+.MemoryList .menu_wrap .right button {
+  width: 100%;
 }
 
 @media (max-width: 480px) {
