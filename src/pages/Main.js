@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import MemoryList from '../components/MemoryList';
 
 const Main = () => {
-  const dummyData = useContext(AppDataContext);
+  const memoryData = useContext(AppDataContext);
 
   // 상단 년도, 월 표시
   const [curDate, setDate] = useState(new Date());
@@ -35,9 +35,9 @@ const Main = () => {
     console.log(lastDay);
 
     setData(
-      dummyData.filter((list) => firstDay <= list.date && list.date <= lastDay)
+      memoryData.filter((list) => firstDay <= list.date && list.date <= lastDay)
     );
-  }, [dummyData, curDate]);
+  }, [memoryData, curDate]);
 
   useEffect(() => {
     console.log(data);
@@ -50,7 +50,7 @@ const Main = () => {
         text={headText}
         right={<Button text={'>'} onClick={onIncrease} />}
       />
-      <MemoryList dummyData={dummyData} />
+      <MemoryList memoryData={memoryData} />
     </div>
   );
 };

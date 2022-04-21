@@ -10,7 +10,7 @@ import Detail from './pages/Detail';
 
 export const AppDataContext = React.createContext();
 
-const dummyList = [
+const dummyData = [
   {
     id: 1,
     title: '라라랜드-1',
@@ -55,7 +55,7 @@ const dummyList = [
 
 function App() {
   return (
-    <AppDataContext.Provider value={dummyList}>
+    <AppDataContext.Provider value={dummyData}>
       <BrowserRouter>
         <div className="App">
           <Routes>
