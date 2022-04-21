@@ -3,6 +3,7 @@ import { AppDataContext } from '../App';
 
 import Button from '../components/Button';
 import Header from '../components/Header';
+import MemoryList from '../components/MemoryList';
 
 const Main = () => {
   const dummyData = useContext(AppDataContext);
@@ -49,6 +50,7 @@ const Main = () => {
         text={headText}
         right={<Button text={'>'} onClick={onIncrease} />}
       />
+      <MemoryList dummyData={dummyData} />
     </div>
   );
 };

@@ -13,7 +13,7 @@ export const AppDataContext = React.createContext();
 const dummyList = [
   {
     id: 1,
-    title: '라라랜드',
+    title: '라라랜드-1',
     content_1: '저녁 파티',
     content_2: '재밌다',
     emotion: 5,
@@ -21,7 +21,7 @@ const dummyList = [
   },
   {
     id: 2,
-    title: '미스터 션샤인',
+    title: '미스터 션샤인-2',
     content_1: '저격 장면',
     content_2: '재밌다',
     emotion: 4,
@@ -29,7 +29,7 @@ const dummyList = [
   },
   {
     id: 3,
-    title: '스물다섯',
+    title: '스물다섯-3',
     content_1: '바다 놀러간 장면',
     content_2: '재밌다',
     emotion: 3,
@@ -37,7 +37,7 @@ const dummyList = [
   },
   {
     id: 4,
-    title: '도둑들',
+    title: '도둑들-4',
     content_1: '저녁 파티',
     content_2: '재밌다',
     emotion: 2,
@@ -45,7 +45,7 @@ const dummyList = [
   },
   {
     id: 5,
-    title: '승리호',
+    title: '승리호-5',
     content_1: '저녁 파티',
     content_2: '재밌다',
     emotion: 1,
