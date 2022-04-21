@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import React, { createContext } from 'react';
+import React from 'react';
 
 import Home from './pages/Home';
 import Main from './pages/Main';
@@ -41,7 +41,7 @@ const dummyData = [
     content_1: '저녁 파티',
     content_2: '재밌다',
     emotion: 2,
-    date: 16505191988114,
+    date: 1650519198814,
   },
   {
     id: 5,

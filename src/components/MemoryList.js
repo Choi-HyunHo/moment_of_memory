@@ -9,7 +9,9 @@ const ControlMenu = ({ value, onChange, optionList }) => {
   return (
     <select value={value} onChange={(e) => onChange(e.target.value)}>
       {optionList.map((list, idx) => (
-        <option key={idx}>{list.name}</option>
+        <option key={idx} value={list.value}>
+          {list.name}
+        </option>
       ))}
     </select>
   );
@@ -21,14 +23,10 @@ const MemoryList = ({ memoryData }) => {
 
   // 리스트 정렬
   const memoryOrder = () => {
-    // 깊은 복사
-
     const compare = (a, b) => {
       if (sortType === 'lastest') {
         return b.date - a.date;
-      }
-
-      if (sortType === 'oldest') {
+      } else {
         return a.date - b.date;
       }
     };
