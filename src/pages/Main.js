@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppDateContext } from '../App';
+
 import Button from '../components/Button';
 import Header from '../components/Header';
 
 const Main = () => {
-  const [curDate, setDate] = useState(new Date());
+  const dummyData = useContext(AppDateContext);
 
+  const [curDate, setDate] = useState(new Date());
   const headText = `${curDate.getFullYear()}. ${curDate.getMonth() + 1}`;
 
   const onIncrease = () => {
