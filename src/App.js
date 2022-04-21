@@ -8,7 +8,7 @@ import New from './pages/New';
 import Modify from './pages/Modify';
 import Detail from './pages/Detail';
 
-export const AppDateContext = React.createContext();
+export const AppDataContext = React.createContext();
 
 const dummyList = [
   {
@@ -17,7 +17,7 @@ const dummyList = [
     content_1: '저녁 파티',
     content_2: '재밌다',
     emotion: 5,
-    createDate: 1650519198811,
+    date: 1650519198811,
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const dummyList = [
     content_1: '저격 장면',
     content_2: '재밌다',
     emotion: 4,
-    createDate: 1650519198812,
+    date: 1650519198812,
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const dummyList = [
     content_1: '바다 놀러간 장면',
     content_2: '재밌다',
     emotion: 3,
-    createDate: 1650519198813,
+    date: 1650519198813,
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const dummyList = [
     content_1: '저녁 파티',
     content_2: '재밌다',
     emotion: 2,
-    createDate: 16505191988114,
+    date: 16505191988114,
   },
   {
     id: 5,
@@ -49,13 +49,13 @@ const dummyList = [
     content_1: '저녁 파티',
     content_2: '재밌다',
     emotion: 1,
-    createDate: 1650519198815,
+    date: 1650519198815,
   },
 ];
 
 function App() {
   return (
-    <AppDateContext.Provider value={dummyList}>
+    <AppDataContext.Provider value={dummyList}>
       <BrowserRouter>
         <div className="App">
           <Routes>
@@ -67,7 +67,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-    </AppDateContext.Provider>
+    </AppDataContext.Provider>
   );
 }
 
