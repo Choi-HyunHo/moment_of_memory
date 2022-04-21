@@ -12,7 +12,7 @@
 
 <br>
 
-## 💄 Moment of Memory 디자인
+## 💄 Moment of Memory 초기 디자인
 
 ![bandicam 2022-04-19 18-31-43-114](https://user-images.githubusercontent.com/87301268/163974704-bdf73c78-3c06-45a6-b1d0-19b5a1192e21.jpg)
 ![bandicam 2022-04-19 18-32-07-398](https://user-images.githubusercontent.com/87301268/163974707-20a762a4-7ab4-4c1d-871b-4d06b441f716.jpg)
