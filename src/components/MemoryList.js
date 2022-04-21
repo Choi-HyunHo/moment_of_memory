@@ -52,7 +52,7 @@ const MemoryList = ({ memoryData }) => {
     const emotionFilter =
       emotionType === 'all'
         ? copyList
-        : copyList.filter((list) => emotionCallback());
+        : copyList.filter((list) => emotionCallback(list));
 
     const finalList = emotionFilter.sort(compare);
 
