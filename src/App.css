@@ -135,6 +135,16 @@ body {
   cursor: pointer;
 }
 
+.Button_success {
+  font-weight: bold;
+  background-color: #2ee59d;
+}
+
+.Button_cancel {
+  font-weight: bold;
+  background-color: #fd565f;
+}
+
 .Button_default:hover {
   background-color: #ececec;
   box-shadow: 0px 15px 20px rgba(128, 128, 128, 0.4);
@@ -143,7 +153,6 @@ body {
 }
 
 .Button_success:hover {
-  background-color: #2ee59d;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
@@ -232,5 +241,9 @@ body {
 
   .Header .Header_text {
     font-size: 20px;
+  }
+
+  .ControlMenu {
+    padding: 10px 5px;
   }
 }

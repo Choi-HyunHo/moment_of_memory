@@ -68,12 +68,12 @@ const MemoryList = ({ memoryData }) => {
     <div className="MemoryList">
       <div className="menu_wrap">
         <div className="left">
-          <button
+          {/* <button
             className="home_btn  Button_default"
             onClick={() => navigate('/')}
           >
             H
-          </button>
+          </button> */}
           <ControlMenu
             value={sortType}
             onChange={setSortType}
@@ -90,7 +90,7 @@ const MemoryList = ({ memoryData }) => {
         <div className="right">
           <Button
             type={'success'}
-            text={'새 메모리 작성'}
+            text={'New'}
             onClick={() => navigate('/new')}
           />
         </div>
