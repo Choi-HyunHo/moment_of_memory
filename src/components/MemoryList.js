@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
+import MemoryItem from './MemoryItem';
 
 const sortOptionList = [
   { value: 'lastest', name: '최신 순' },
@@ -68,12 +69,6 @@ const MemoryList = ({ memoryData }) => {
     <div className="MemoryList">
       <div className="menu_wrap">
         <div className="left">
-          {/* <button
-            className="home_btn  Button_default"
-            onClick={() => navigate('/')}
-          >
-            H
-          </button> */}
           <ControlMenu
             value={sortType}
             onChange={setSortType}
@@ -97,9 +92,7 @@ const MemoryList = ({ memoryData }) => {
       </div>
 
       {memoryOrder().map((list) => (
-        <div key={list.id}>
-          <h4>{list.title}</h4>
-        </div>
+        <MemoryItem key={list.id} {...list} />
       ))}
     </div>
   );

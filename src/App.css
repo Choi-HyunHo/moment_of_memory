@@ -128,6 +128,7 @@ body {
   width: 100px;
   height: 45px;
   font-size: 18px;
+  font-weight: bold;
   background-color: #fff;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -191,13 +192,12 @@ body {
 }
 
 /*ControlMenu */
-
 .ControlMenu {
   margin-right: 10px;
   border: none;
   border-radius: 5px;
   background-color: #ececec;
-  padding: 10px 20px;
+  padding: 14px 20px;
   cursor: pointer;
   font-size: 13px;
 }
@@ -217,7 +217,39 @@ body {
   width: 100%;
 }
 
+/* MemoryItem */
+.MemoryItem {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.MemoryItem .MemoryItem_img_wrap img {
+  width: 70%;
+}
+
+.Detail {
+  flex-grow: 1;
+  cursor: pointer;
+  text-align: left;
+}
+
+.Detail .Detail_date {
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.Detail .Detail_title {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
 @media (max-width: 480px) {
+  .Button {
+    font-size: 14px;
+  }
+
   .home_title h1 {
     font-size: 32px;
   }
@@ -237,6 +269,7 @@ body {
 
   .Button {
     width: 50px;
+    height: 38px;
   }
 
   .Header .Header_text {
@@ -245,5 +278,22 @@ body {
 
   .ControlMenu {
     padding: 10px 5px;
+  }
+
+  .MemoryItem_img_wrap {
+    width: 90px;
+  }
+
+  .MemoryItem .MemoryItem_img_wrap img {
+    width: 60%;
+  }
+
+  .Detail .Detail_date {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .Detail .Detail_title {
+    font-size: 14px;
   }
 }
