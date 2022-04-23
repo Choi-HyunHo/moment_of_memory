@@ -237,12 +237,16 @@ body {
 .Detail .Detail_date {
   padding-bottom: 10px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .Detail .Detail_title {
   font-size: 16px;
   padding-bottom: 10px;
+}
+
+.Detail .Detail_content_1 {
+  font-size: 16px;
 }
 
 @media (max-width: 480px) {
@@ -290,10 +294,14 @@ body {
 
   .Detail .Detail_date {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .Detail .Detail_title {
-    font-size: 14px;
+    font-size: 13px;
+  }
+
+  .Detail .Detail_content_1 {
+    font-size: 13px;
   }
 }
