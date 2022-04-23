@@ -253,6 +253,14 @@ body {
   font-size: 16px;
 }
 
+/* MemoryEditor */
+.MemoryEditor {
+}
+
+.MemoryEditor section {
+  padding: 40px 0;
+}
+
 @media (max-width: 480px) {
   .Button {
     font-size: 14px;

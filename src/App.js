@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import Home from './pages/Home';
 import Main from './pages/Main';
@@ -9,6 +9,7 @@ import Modify from './pages/Modify';
 import Detail from './pages/Detail';
 
 export const AppDataContext = React.createContext();
+export const AppActivity = React.createContext();
 
 const dummyData = [
   {
@@ -54,19 +55,42 @@ const dummyData = [
 ];
 
 function App() {
+  // 전역으로 사용할 data
+  const [data, setData] = useState();
+
+  const dataId = useRef(0);
+
+  // 추가
+  const onCreate = (title, emotion, content_1, content_2) => {
+    const createDate = new Date().getTime();
+    const newItem = {
+      title,
+      emotion,
+      content_1,
+      content_2,
+      createDate,
+      id: dataId.current,
+    };
+
+    dataId.current += 1;
+    setData([newItem, ...data]);
+  };
+
   return (
     <AppDataContext.Provider value={dummyData}>
-      <BrowserRouter>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/main" element={<Main />} />
-            <Route path="/detail" element={<Detail />} />
-            <Route path="/new" element={<New />} />
-            <Route path="/modify" element={<Modify />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <AppActivity.Provider value={onCreate}>
+        <BrowserRouter>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/main" element={<Main />} />
+              <Route path="/detail" element={<Detail />} />
+              <Route path="/new" element={<New />} />
+              <Route path="/modify" element={<Modify />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </AppActivity.Provider>
     </AppDataContext.Provider>
   );
 }

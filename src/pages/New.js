@@ -1,7 +1,9 @@
+import MemoryEditor from '../components/MemoryEditor';
+
 const New = () => {
   return (
     <div>
-      <h2>New</h2>
+      <MemoryEditor />
     </div>
   );
 };
