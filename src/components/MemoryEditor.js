@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 import { AppActivity } from '../App';
+import Button from './Button';
 import Header from './Header';
 
 const MemoryEditor = () => {
-  const memoryActivity = useContext(AppActivity);
+  const { onCreate } = useContext(AppActivity);
 
   // 날짜
   const [date, setDate] = useState(new Date());
@@ -16,6 +17,11 @@ const MemoryEditor = () => {
 
   // 내용
   const [text_2, settext_2] = useState('');
+
+  const handleSubmit = () => {
+    alert('저장 성공');
+    onCreate(title, text_1, text_2);
+  };
 
   return (
     <div className="MemoryEditor">
@@ -65,6 +71,10 @@ const MemoryEditor = () => {
           />
         </div>
       </section>
+
+      <footer>
+        <Button type={'success'} text={'저장'} onClick={handleSubmit} />
+      </footer>
     </div>
   );
 };
