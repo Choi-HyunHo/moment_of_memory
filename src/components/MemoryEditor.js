@@ -4,6 +4,37 @@ import { AppActivity } from '../App';
 import Button from './Button';
 import Header from './Header';
 
+const env = process.env;
+env.PUBLIC_URL = env.PUBLIC_URL || '';
+
+const emotionList = [
+  {
+    emotion_id: 1,
+    emotion_img: process.env.PUBLIC_URL + `assets/emotion1.png`,
+    emotion_text: '슬퍼요',
+  },
+  {
+    emotion_id: 2,
+    emotion_img: process.env.PUBLIC_URL + 'assets/emotion2.png',
+    emotion_text: '우울해요',
+  },
+  {
+    emotion_id: 3,
+    emotion_img: process.env.PUBLIC_URL + 'assets/emotion3.png',
+    emotion_text: '평범해요',
+  },
+  {
+    emotion_id: 4,
+    emotion_img: process.env.PUBLIC_URL + 'assets/emotion4.png',
+    emotion_text: '기분 좋아요',
+  },
+  {
+    emotion_id: 5,
+    emotion_img: process.env.PUBLIC_URL + 'assets/emotion5.png',
+    emotion_text: '행복해요',
+  },
+];
+
 // 날짜 - 작성하는 날짜가 기본으로 보임
 const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
@@ -17,8 +48,10 @@ const MemoryEditor = () => {
   // 날짜 - 작성하는 날짜가 기본으로 보임
   const [date, setDate] = useState(getStringDate(new Date()));
 
-  //   // 제목
-  //   const [title, setTitle] = useState('');
+  // 제목
+  const [title, setTitle] = useState('');
+
+  // 감정
 
   //   // 장면
   //   const [content1, setContent1] = useState('');
@@ -40,6 +73,7 @@ const MemoryEditor = () => {
         <h4>기억하는 순간</h4>
         <div>
           <input
+            className="input_date"
             type="date"
             value={date}
             onChange={(e) => {
@@ -49,7 +83,7 @@ const MemoryEditor = () => {
         </div>
       </section>
 
-      {/* <section>
+      <section>
         <h4>제목</h4>
         <input
           type="text"
@@ -62,9 +96,14 @@ const MemoryEditor = () => {
 
       <section>
         <h4>그 때의 감정</h4>
-        <div></div>
+        <div>
+          {emotionList.map((item) => (
+            <div key={item.emotion_id}>{item.emotion_img}</div>
+          ))}
+        </div>
       </section>
 
+      {/*
       <section>
         <h4>기억에 남는 장면</h4>
         <div>
