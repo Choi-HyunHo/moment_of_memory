@@ -9,39 +9,48 @@ const Main = () => {
   const memoryData = useContext(AppDataContext);
 
   // 상단 년도, 월 표시
-  const [curDate, setDate] = useState(new Date());
+  const [curDate, setCurDate] = useState(new Date());
   const headText = `${curDate.getFullYear()}. ${curDate.getMonth() + 1}`;
 
   const onIncrease = () => {
-    setDate(
+    setCurDate(
       new Date(curDate.getFullYear(), curDate.getMonth() + 1, curDate.getDate())
     );
   };
 
   const onDecrease = () => {
-    setDate(
+    setCurDate(
       new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate())
     );
   };
 
   // 각 아이템이 해당 하는 월만 나오게
-  const [data, setData] = useState([]);
+  const [date, setDate] = useState([]);
 
   useEffect(() => {
     // 현재 년도와 월의 첫 번째 날짜 ~ 마지막 날짜
-    const firstDay = new Date(curDate.getFullYear(), curDate.getMonth(), 1);
-    const lastDay = new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0);
+    const firstDay = new Date(
+      curDate.getFullYear(),
+      curDate.getMonth(),
+      1
+    ).getTime();
+    const lastDay = new Date(
+      curDate.getFullYear(),
+      curDate.getMonth() + 1,
+      0
+    ).getTime();
+
     console.log(firstDay);
     console.log(lastDay);
 
-    setData(
+    setDate(
       memoryData.filter((list) => firstDay <= list.date && list.date <= lastDay)
     );
   }, [memoryData, curDate]);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(date);
+  }, [date]);
 
   return (
     <div>

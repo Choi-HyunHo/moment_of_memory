@@ -61,13 +61,13 @@ function App() {
   const dataId = useRef(0);
 
   // 추가
-  const onCreate = (title, emotion, content_1, content_2) => {
+  const onCreate = (title, emotion, content1, content2) => {
     const createDate = new Date().getTime();
     const newItem = {
       title,
       emotion,
-      content_1,
-      content_2,
+      content1,
+      content2,
       createDate,
       id: dataId.current,
     };
