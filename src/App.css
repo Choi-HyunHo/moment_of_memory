@@ -224,6 +224,10 @@ body {
   padding-bottom: 30px;
 }
 
+.MemoryItem:hover {
+  transform: translateY(-7px);
+}
+
 .MemoryItem .MemoryItem_img_wrap img {
   width: 70%;
 }
