@@ -54,26 +54,44 @@ const dummyData = [
   },
 ];
 
+const reducer = (state, action) => {
+  let newState = [];
+  switch (action.type) {
+    case 'CREATE': {
+      const newItem = {
+        ...action.data,
+      };
+      newState = [newItem, ...state];
+      break;
+    }
+
+    default:
+      return state;
+  }
+
+  return newState;
+};
+
 function App() {
   // 전역으로 사용할 data
-  const [data, setData] = useState(dummyData);
+  const [data, dispatch] = useReducer(reducer, dummyData);
 
   const dataId = useRef(0);
 
   // 추가
-  const onCreate = (date, title, emotion, content1, content2) => {
-    const createDate = new Date(date).getTime;
-    const newItem = {
-      title,
-      emotion,
-      content1,
-      content2,
-      createDate,
-      id: dataId.current,
-    };
-
+  const onCreate = (date, title, content1, contnet2, emotion) => {
+    dispatch({
+      type: 'CREATE',
+      data: {
+        id: dataId.current,
+        date: new Date(date).getTime(),
+        title,
+        content1,
+        contnet2,
+        emotion,
+      },
+    });
     dataId.current += 1;
-    setData([newItem, ...data]);
   };
 
   return (

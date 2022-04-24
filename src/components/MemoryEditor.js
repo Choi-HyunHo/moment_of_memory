@@ -63,7 +63,7 @@ const MemoryEditor = () => {
 
   const handleSubmit = () => {
     alert('저장 성공');
-    onCreate(date, title, emotion, content1, content2);
+    onCreate(date, title, content1, content2, emotion);
     navigate('/main');
   };
 
