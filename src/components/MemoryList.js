@@ -32,6 +32,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
 
 const MemoryList = ({ memoryData }) => {
   const navigate = useNavigate();
+
   // 정렬 상태 (value)
   const [sortType, setSortType] = useState('lastest');
   const [emotionType, setEmotionType] = useState('all');

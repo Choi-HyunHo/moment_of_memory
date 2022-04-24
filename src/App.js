@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect, useReducer } from 'react';
 
 import Home from './pages/Home';
 import Main from './pages/Main';
@@ -11,58 +11,58 @@ import Detail from './pages/Detail';
 export const AppDataContext = React.createContext();
 export const AppActivity = React.createContext();
 
-// const dummyData = [
-//   {
-//     id: 1,
-//     title: '라라랜드-1',
-//     content_1: '저녁 파티',
-//     content_2: '재밌다',
-//     emotion: 5,
-//     date: 1650519198811,
-//   },
-//   {
-//     id: 2,
-//     title: '미스터 션샤인-2',
-//     content_1: '저격 장면',
-//     content_2: '재밌다',
-//     emotion: 4,
-//     date: 1650519198812,
-//   },
-//   {
-//     id: 3,
-//     title: '스물다섯-3',
-//     content_1: '바다 놀러간 장면',
-//     content_2: '재밌다',
-//     emotion: 3,
-//     date: 1650519198813,
-//   },
-//   {
-//     id: 4,
-//     title: '도둑들-4',
-//     content_1: '저녁 파티',
-//     content_2: '재밌다',
-//     emotion: 2,
-//     date: 1650519198814,
-//   },
-//   {
-//     id: 5,
-//     title: '승리호-5',
-//     content_1: '저녁 파티',
-//     content_2: '재밌다',
-//     emotion: 1,
-//     date: 1650519198815,
-//   },
-// ];
+const dummyData = [
+  {
+    id: 1,
+    title: '라라랜드-1',
+    content_1: '저녁 파티',
+    content_2: '재밌다',
+    emotion: 5,
+    date: 1650519198811,
+  },
+  {
+    id: 2,
+    title: '미스터 션샤인-2',
+    content_1: '저격 장면',
+    content_2: '재밌다',
+    emotion: 4,
+    date: 1650519198812,
+  },
+  {
+    id: 3,
+    title: '스물다섯-3',
+    content_1: '바다 놀러간 장면',
+    content_2: '재밌다',
+    emotion: 3,
+    date: 1650519198813,
+  },
+  {
+    id: 4,
+    title: '도둑들-4',
+    content_1: '저녁 파티',
+    content_2: '재밌다',
+    emotion: 2,
+    date: 1650519198814,
+  },
+  {
+    id: 5,
+    title: '승리호-5',
+    content_1: '저녁 파티',
+    content_2: '재밌다',
+    emotion: 1,
+    date: 1650519198815,
+  },
+];
 
 function App() {
   // 전역으로 사용할 data
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(dummyData);
 
   const dataId = useRef(0);
 
   // 추가
-  const onCreate = (title, emotion, content1, content2) => {
-    const createDate = new Date().getTime();
+  const onCreate = (date, title, emotion, content1, content2) => {
+    const createDate = new Date(date).getTime;
     const newItem = {
       title,
       emotion,

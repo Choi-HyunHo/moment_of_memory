@@ -5,13 +5,10 @@ import Button from './Button';
 import EmotionItem from './EmotionItem';
 import Header from './Header';
 
-const env = process.env;
-env.PUBLIC_URL = env.PUBLIC_URL || '';
-
 const emotionList = [
   {
     emotion_id: 1,
-    emotion_img: process.env.PUBLIC_URL + '../assets/emotion1.png',
+    emotion_img: process.env.PUBLIC_URL + 'assets/emotion1.png',
     emotion_text: '슬퍼요',
   },
   {
@@ -27,7 +24,7 @@ const emotionList = [
   {
     emotion_id: 4,
     emotion_img: process.env.PUBLIC_URL + 'assets/emotion4.png',
-    emotion_text: '기분 좋아요',
+    emotion_text: '좋아요',
   },
   {
     emotion_id: 5,
@@ -44,7 +41,7 @@ const getStringDate = (date) => {
 const MemoryEditor = () => {
   console.log(getStringDate(new Date()));
   const navigate = useNavigate();
-  //const { onCreate } = useContext(AppActivity);
+  const { onCreate } = useContext(AppActivity);
 
   // 날짜
   const [date, setDate] = useState(getStringDate(new Date()));
@@ -59,14 +56,14 @@ const MemoryEditor = () => {
   };
 
   // 장면
-  // const [content1, setContent1] = useState('');
+  const [content1, setContent1] = useState('');
 
   // 내용
-  // const [content2, setContent2] = useState('');
+  const [content2, setContent2] = useState('');
 
   const handleSubmit = () => {
     alert('저장 성공');
-    // onCreate();
+    onCreate(date, title, emotion, content1, content2);
     navigate('/main');
   };
 
@@ -91,6 +88,7 @@ const MemoryEditor = () => {
       <section>
         <h4>제목</h4>
         <input
+          className="input_title"
           type="text"
           value={title}
           onChange={(e) => {
@@ -103,16 +101,21 @@ const MemoryEditor = () => {
         <h4>그 때의 감정</h4>
         <div className="MemoryEditor_emotion">
           {emotionList.map((item) => (
-            <EmotionItem key={item.id} {...item} onClick={handleClickEmote} />
+            <EmotionItem
+              key={item.emotion_id}
+              {...item}
+              isSelected={item.emotion_id === emotion}
+              onClick={handleClickEmote}
+            />
           ))}
         </div>
       </section>
 
-      {/*
       <section>
         <h4>기억에 남는 장면</h4>
         <div>
           <textarea
+            className="input_content1"
             value={content1}
             onChange={(e) => {
               setContent1(e.target.value);
@@ -124,14 +127,15 @@ const MemoryEditor = () => {
       <section>
         <h4>한 줄 요약</h4>
         <div>
-          <textarea
+          <input
+            className="input_content2"
             value={content2}
             onChange={(e) => {
               setContent2(e.target.value);
             }}
           />
         </div>
-      </section> */}
+      </section>
 
       <footer>
         <Button type={'success'} text={'저장'} onClick={handleSubmit} />

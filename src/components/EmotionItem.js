@@ -1,8 +1,19 @@
-const EmotionItem = ({ emotion_id, emotion_img, emotion_text, onClick }) => {
+const EmotionItem = ({
+  emotion_id,
+  emotion_img,
+  emotion_text,
+  onClick,
+  isSelected,
+}) => {
   return (
-    <div className="EmotionItem">
+    <div
+      className={[
+        'EmotionItem',
+        isSelected ? `EmotionItem_emotionOn` : `EmotionItem_emotionOff`,
+      ].join(' ')}
+    >
       <img src={emotion_img} onClick={() => onClick(emotion_id)} />
-      <div>{emotion_text}</div>
+      <span>{emotion_text}</span>
     </div>
   );
 };

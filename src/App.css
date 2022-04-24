@@ -41,6 +41,7 @@ button {
 
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 body {
   font-family: 'Lora', serif;
@@ -246,7 +247,7 @@ body {
 
 .Detail .Detail_title {
   font-size: 16px;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .Detail .Detail_content_1 {
@@ -254,11 +255,46 @@ body {
 }
 
 /* MemoryEditor */
-.MemoryEditor {
+.MemoryEditor_emotion {
 }
 
 .MemoryEditor section {
-  padding: 40px 0;
+  padding: 20px 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.MemoryEditor input,
+textarea {
+  margin-top: 15px;
+}
+
+.input_date,
+.input_title {
+  border: none;
+  border-radius: 10px;
+  background-color: #e2e2e2;
+  padding: 10px 12px;
+}
+
+.input_title {
+  width: 50%;
+}
+
+.input_content1 {
+  border: none;
+  border-radius: 10px;
+  background-color: #e2e2e2;
+  width: 100%;
+  min-height: 90px;
+  resize: none;
+}
+
+.input_content2 {
+  border: none;
+  border-radius: 10px;
+  background-color: #e2e2e2;
+  width: 100%;
+  padding: 10px 12px;
 }
 
 .MemoryEditor_emotion {
@@ -279,6 +315,15 @@ body {
 .EmotionItem img {
   width: 50%;
   margin: 20px 0;
+}
+
+.EmotionItem span {
+  margin-bottom: 20px;
+}
+
+.EmotionItem_emotionOn {
+  border: 5px solid #61788c;
+  border-radius: 10px;
 }
 
 @media (max-width: 480px) {
@@ -335,5 +380,22 @@ body {
 
   .Detail .Detail_content_1 {
     font-size: 13px;
+  }
+
+  .MemoryEditor section {
+    padding: 8px 0;
+  }
+
+  .input_content1 {
+    min-height: 40px;
+  }
+
+  .EmotionItem img {
+    margin: 12px 0;
+  }
+
+  .EmotionItem span {
+    font-size: 13px;
+    margin-bottom: 10px;
   }
 }

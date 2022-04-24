@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 
-const MemoryItem = ({ id, title, emotion, content1, date }) => {
+const MemoryItem = ({ id, date, title, emotion, content1 }) => {
   const navigate = useNavigate();
 
-  const returnDate = new Date(date).toLocaleDateString();
+  const strDate = new Date(parseInt(date)).toLocaleDateString();
 
   return (
     <div className="MemoryItem">
@@ -17,7 +17,7 @@ const MemoryItem = ({ id, title, emotion, content1, date }) => {
         <img src={process.env.PUBLIC_URL + `assets/emotion${emotion}.png`} />
       </div>
       <div className="Detail" onClick={() => navigate('/detail')}>
-        <div className="Detail_date">{returnDate}</div>
+        <div className="Detail_date">{strDate}</div>
         <div className="Detail_title">{title}</div>
         <div className="Detail_content_1">{content1}</div>
       </div>
