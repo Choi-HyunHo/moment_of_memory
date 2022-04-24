@@ -261,6 +261,26 @@ body {
   padding: 40px 0;
 }
 
+.MemoryEditor_emotion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* EmotionItem */
+.EmotionItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.EmotionItem img {
+  width: 50%;
+  margin: 20px 0;
+}
+
 @media (max-width: 480px) {
   .Button {
     font-size: 14px;

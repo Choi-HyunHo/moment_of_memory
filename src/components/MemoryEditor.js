@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppActivity } from '../App';
 import Button from './Button';
+import EmotionItem from './EmotionItem';
 import Header from './Header';
 
 const env = process.env;
@@ -10,7 +11,7 @@ env.PUBLIC_URL = env.PUBLIC_URL || '';
 const emotionList = [
   {
     emotion_id: 1,
-    emotion_img: process.env.PUBLIC_URL + `assets/emotion1.png`,
+    emotion_img: process.env.PUBLIC_URL + '../assets/emotion1.png',
     emotion_text: '슬퍼요',
   },
   {
@@ -45,19 +46,23 @@ const MemoryEditor = () => {
   const navigate = useNavigate();
   //const { onCreate } = useContext(AppActivity);
 
-  // 날짜 - 작성하는 날짜가 기본으로 보임
+  // 날짜
   const [date, setDate] = useState(getStringDate(new Date()));
 
   // 제목
   const [title, setTitle] = useState('');
 
   // 감정
+  const [emotion, setEmotion] = useState(3);
+  const handleClickEmote = (emotion) => {
+    setEmotion(emotion);
+  };
 
-  //   // 장면
-  //   const [content1, setContent1] = useState('');
+  // 장면
+  // const [content1, setContent1] = useState('');
 
-  //   // 내용
-  //   const [content2, setContent2] = useState('');
+  // 내용
+  // const [content2, setContent2] = useState('');
 
   const handleSubmit = () => {
     alert('저장 성공');
@@ -96,9 +101,9 @@ const MemoryEditor = () => {
 
       <section>
         <h4>그 때의 감정</h4>
-        <div>
+        <div className="MemoryEditor_emotion">
           {emotionList.map((item) => (
-            <div key={item.emotion_id}>{item.emotion_img}</div>
+            <EmotionItem key={item.id} {...item} onClick={handleClickEmote} />
           ))}
         </div>
       </section>
