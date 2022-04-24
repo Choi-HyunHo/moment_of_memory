@@ -79,7 +79,7 @@ function App() {
   const dataId = useRef(0);
 
   // 추가
-  const onCreate = (date, title, content1, contnet2, emotion) => {
+  const onCreate = (date, title, content1, content2, emotion) => {
     dispatch({
       type: 'CREATE',
       data: {
@@ -87,7 +87,7 @@ function App() {
         date: new Date(date).getTime(),
         title,
         content1,
-        contnet2,
+        content2,
         emotion,
       },
     });

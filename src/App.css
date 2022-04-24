@@ -201,6 +201,7 @@ body {
   padding: 14px 20px;
   cursor: pointer;
   font-size: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* MemoryList */
@@ -222,7 +223,9 @@ body {
 .MemoryItem {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 30px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #ececec;
 }
 
 .MemoryItem:hover {
@@ -230,13 +233,14 @@ body {
 }
 
 .MemoryItem .MemoryItem_img_wrap img {
-  width: 70%;
+  width: 60%;
 }
 
 .Detail {
   flex-grow: 1;
   cursor: pointer;
   text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .Detail .Detail_date {
@@ -259,7 +263,7 @@ body {
 }
 
 .MemoryEditor section {
-  padding: 20px 0;
+  padding: 15px 0;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -301,6 +305,12 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.MemoryEditor_footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
 /* EmotionItem */
@@ -386,8 +396,23 @@ textarea {
     padding: 8px 0;
   }
 
+  .input_date,
+  .input_title {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+
   .input_content1 {
     min-height: 40px;
+  }
+
+  .input_content2 {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+
+  .MemoryEditor_footer {
+    margin-top: 30px;
   }
 
   .EmotionItem img {

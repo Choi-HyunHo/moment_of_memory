@@ -137,8 +137,13 @@ const MemoryEditor = () => {
         </div>
       </section>
 
-      <footer>
-        <Button type={'success'} text={'저장'} onClick={handleSubmit} />
+      <footer className="MemoryEditor_footer">
+        <Button
+          type={'cancel'}
+          text={'취소'}
+          onClick={() => navigate('/main')}
+        />
+        <Button type={'success'} text={'작성'} onClick={handleSubmit} />
       </footer>
     </div>
   );
