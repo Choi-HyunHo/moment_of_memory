@@ -39,7 +39,6 @@ const getStringDate = (date) => {
 };
 
 const MemoryEditor = ({ isEdit, originData }) => {
-  console.log(getStringDate(new Date()));
   const navigate = useNavigate();
   const { onCreate, onEdit } = useContext(AppActivity);
 
@@ -80,8 +79,9 @@ const MemoryEditor = ({ isEdit, originData }) => {
     ) {
       if (isEdit) {
         onEdit(originData.id, date, title, content1, content2, emotion);
+      } else {
+        onCreate(date, title, content1, content2, emotion);
       }
-      onCreate(date, title, content1, content2, emotion);
     }
     navigate('/main');
   };
