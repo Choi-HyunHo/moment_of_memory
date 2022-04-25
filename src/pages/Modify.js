@@ -29,7 +29,11 @@ const Modify = () => {
     }
   }, [id, memoryData]);
 
-  return <div>{originData && <MemoryEditor />}</div>;
+  return (
+    <div>
+      {originData && <MemoryEditor isEdit={true} originData={originData} />}
+    </div>
+  );
 };
 
 export default Modify;

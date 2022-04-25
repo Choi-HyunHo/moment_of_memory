@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppActivity } from '../App';
 import Button from './Button';
@@ -38,7 +38,7 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
 
-const MemoryEditor = () => {
+const MemoryEditor = ({ isEdit, originData }) => {
   console.log(getStringDate(new Date()));
   const navigate = useNavigate();
   const { onCreate } = useContext(AppActivity);
@@ -60,6 +60,14 @@ const MemoryEditor = () => {
 
   // 내용
   const [content2, setContent2] = useState('');
+
+  useEffect(() => {
+    setDate(getStringDate(new Date()));
+    setTitle(originData.title);
+    setEmotion(originData.emotion);
+    setContent1(originData.content1);
+    setContent2(originData.content2);
+  }, [isEdit, originData]);
 
   const handleSubmit = () => {
     alert('저장 성공');
