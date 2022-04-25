@@ -72,18 +72,22 @@ const MemoryEditor = ({ isEdit, originData }) => {
   }, [isEdit, originData]);
 
   const handleSubmit = () => {
-    if (
-      window.confirm(
-        isEdit ? '기억을 수정 하시겠습니까 ?' : '기억을 저장 하시겠습니까 ?'
-      )
-    ) {
-      if (isEdit) {
-        onEdit(originData.id, date, title, content1, content2, emotion);
-      } else {
-        onCreate(date, title, content1, content2, emotion);
+    if (title.length >= 1) {
+      if (
+        window.confirm(
+          isEdit ? '기억을 수정 하시겠습니까 ?' : '기억을 저장 하시겠습니까 ?'
+        )
+      ) {
+        if (isEdit) {
+          onEdit(originData.id, date, title, content1, content2, emotion);
+        } else {
+          onCreate(date, title, content1, content2, emotion);
+        }
       }
+      navigate('/main');
+    } else {
+      alert('제목은 필수 입니다.');
     }
-    navigate('/main');
   };
 
   return (
@@ -107,7 +111,9 @@ const MemoryEditor = ({ isEdit, originData }) => {
       <section>
         <h4>제목</h4>
         <input
+          required
           className="input_title"
+          minlength="1"
           type="text"
           value={title}
           onChange={(e) => {
@@ -134,6 +140,7 @@ const MemoryEditor = ({ isEdit, originData }) => {
         <h4>기억에 남는 장면</h4>
         <div>
           <textarea
+            required
             className="input_content1"
             value={content1}
             onChange={(e) => {
@@ -147,6 +154,7 @@ const MemoryEditor = ({ isEdit, originData }) => {
         <h4>한 줄 요약</h4>
         <div>
           <input
+            required
             className="input_content2"
             value={content2}
             onChange={(e) => {

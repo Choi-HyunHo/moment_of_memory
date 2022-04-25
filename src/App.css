@@ -17,13 +17,19 @@ textarea {
 }
 
 button:focus,
-button:active,
-input:focus,
-input:active,
-textarea:focus,
-textarea:active {
+button:active {
   outline: none;
   box-shadow: none;
+}
+
+input:invalid,
+textarea:invalid {
+  border: 2px solid 5e728c;
+}
+
+input:invalid:required,
+textarea:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
 }
 
 ul,
