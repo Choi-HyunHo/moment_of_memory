@@ -41,7 +41,7 @@ const getStringDate = (date) => {
 const MemoryEditor = ({ isEdit, originData }) => {
   console.log(getStringDate(new Date()));
   const navigate = useNavigate();
-  const { onCreate } = useContext(AppActivity);
+  const { onCreate, onEdit } = useContext(AppActivity);
 
   // 날짜
   const [date, setDate] = useState(getStringDate(new Date()));
@@ -73,14 +73,22 @@ const MemoryEditor = ({ isEdit, originData }) => {
   }, [isEdit, originData]);
 
   const handleSubmit = () => {
-    alert('저장 성공');
-    onCreate(date, title, content1, content2, emotion);
+    if (
+      window.confirm(
+        isEdit ? '기억을 수정 하시겠습니까 ?' : '기억을 저장 하시겠습니까 ?'
+      )
+    ) {
+      if (isEdit) {
+        onEdit(originData.id, date, title, content1, content2, emotion);
+      }
+      onCreate(date, title, content1, content2, emotion);
+    }
     navigate('/main');
   };
 
   return (
     <div className="MemoryEditor">
-      <Header text={'Memory'} />
+      <Header text={isEdit ? '수정' : 'Memory'} />
 
       <section className="MemoryEditor_date">
         <h4>기억하는 순간</h4>

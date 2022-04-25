@@ -83,7 +83,7 @@ function App() {
   // 전역으로 사용할 data
   const [data, dispatch] = useReducer(reducer, dummyData);
 
-  const dataId = useRef(0);
+  const dataId = useRef(6);
 
   // 추가
   const onCreate = (date, title, content1, content2, emotion) => {
