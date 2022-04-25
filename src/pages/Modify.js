@@ -6,12 +6,10 @@ import MemoryEditor from '../components/MemoryEditor';
 const Modify = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log(id);
 
   const memoryData = useContext(AppDataContext);
-  console.log(memoryData);
 
-  // targetItem의 상태
+  // targetItem의 상태 - originData : 원본 데이터
   const [originData, setOriginData] = useState();
 
   useEffect(() => {
@@ -19,7 +17,6 @@ const Modify = () => {
       const targetItem = memoryData.find(
         (list) => parseInt(list.id) === parseInt(id)
       );
-      console.log(targetItem);
 
       if (targetItem) {
         setOriginData(targetItem);

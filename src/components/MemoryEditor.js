@@ -61,12 +61,15 @@ const MemoryEditor = ({ isEdit, originData }) => {
   // 내용
   const [content2, setContent2] = useState('');
 
+  // 수정 페이지로 작성된 데이터 불러오기
   useEffect(() => {
-    setDate(getStringDate(new Date()));
-    setTitle(originData.title);
-    setEmotion(originData.emotion);
-    setContent1(originData.content1);
-    setContent2(originData.content2);
+    if (isEdit) {
+      setDate(getStringDate(new Date()));
+      setTitle(originData.title);
+      setEmotion(originData.emotion);
+      setContent1(originData.content1);
+      setContent2(originData.content2);
+    }
   }, [isEdit, originData]);
 
   const handleSubmit = () => {
