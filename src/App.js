@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import React, { useRef, useState, useEffect, useReducer } from 'react';
+import React, { useRef, useReducer } from 'react';
 
 import Home from './pages/Home';
 import Main from './pages/Main';
@@ -15,40 +15,40 @@ const dummyData = [
   {
     id: 1,
     title: '라라랜드-1',
-    content_1: '저녁 파티',
-    content_2: '재밌다',
+    content1: '저녁 파티',
+    content2: '재밌다',
     emotion: 5,
     date: 1650519198811,
   },
   {
     id: 2,
     title: '미스터 션샤인-2',
-    content_1: '저격 장면',
-    content_2: '재밌다',
+    content1: '저격 장면',
+    content2: '재밌다',
     emotion: 4,
     date: 1650519198812,
   },
   {
     id: 3,
     title: '스물다섯-3',
-    content_1: '바다 놀러간 장면',
-    content_2: '재밌다',
+    content1: '바다 놀러간 장면',
+    content2: '재밌다',
     emotion: 3,
     date: 1650519198813,
   },
   {
     id: 4,
     title: '도둑들-4',
-    content_1: '저녁 파티',
-    content_2: '재밌다',
+    content1: '저녁 파티',
+    content2: '재밌다',
     emotion: 2,
     date: 1650519198814,
   },
   {
     id: 5,
     title: '승리호-5',
-    content_1: '저녁 파티',
-    content_2: '재밌다',
+    content1: '저녁 파티',
+    content2: '재밌다',
     emotion: 1,
     date: 1650519198815,
   },
@@ -62,6 +62,13 @@ const reducer = (state, action) => {
         ...action.data,
       };
       newState = [newItem, ...state];
+      break;
+    }
+
+    case 'EDIT': {
+      newState = state.map((list) =>
+        list.id === action.data.id ? { ...action.data } : list
+      );
       break;
     }
 
@@ -94,9 +101,24 @@ function App() {
     dataId.current += 1;
   };
 
+  // 수정
+  const onEdit = (targetId, date, title, content1, content2, emotion) => {
+    dispatch({
+      type: 'EDIT',
+      data: {
+        id: targetId,
+        date: new Date(date).getTime(),
+        title,
+        content1,
+        content2,
+        emotion,
+      },
+    });
+  };
+
   return (
     <AppDataContext.Provider value={data}>
-      <AppActivity.Provider value={{ onCreate }}>
+      <AppActivity.Provider value={{ onCreate, onEdit }}>
         <BrowserRouter>
           <div className="App">
             <Routes>
@@ -104,7 +126,7 @@ function App() {
               <Route path="/main" element={<Main />} />
               <Route path="/detail" element={<Detail />} />
               <Route path="/new" element={<New />} />
-              <Route path="/modify" element={<Modify />} />
+              <Route path="/modify/:id" element={<Modify />} />
             </Routes>
           </div>
         </BrowserRouter>

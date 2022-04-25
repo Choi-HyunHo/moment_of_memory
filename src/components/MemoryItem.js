@@ -22,7 +22,7 @@ const MemoryItem = ({ id, date, title, emotion, content2 }) => {
         <div className="Detail_content_1">{content2}</div>
       </div>
       <div className="MemoryItem_button">
-        <Button text={'수정'} />
+        <Button text={'수정'} onClick={() => navigate('/modify')} />
       </div>
     </div>
   );

@@ -216,6 +216,7 @@ body {
 
 .Header .Header_text {
   font-size: 24px;
+  font-weight: bold;
 }
 
 /*ControlMenu */
@@ -360,6 +361,11 @@ textarea {
 .EmotionItem_emotionOn {
   border: 5px solid #61788c;
   border-radius: 10px;
+}
+
+/* Modify */
+.Modify_header {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 @media (max-width: 480px) {

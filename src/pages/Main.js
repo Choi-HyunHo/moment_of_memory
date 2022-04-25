@@ -41,9 +41,6 @@ const Main = () => {
       0
     ).getTime();
 
-    console.log(firstDay);
-    console.log(lastDay);
-
     setData(
       memoryData.filter((list) => firstDay <= list.date && list.date <= lastDay)
     );
