@@ -293,7 +293,8 @@ body {
 }
 
 /* MemoryEditor */
-.MemoryEditor_emotion {
+.MemoryEditor {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .MemoryEditor section {
@@ -323,6 +324,7 @@ textarea {
   border-radius: 10px;
   background-color: #e2e2e2;
   width: 100%;
+  padding: 10px;
   min-height: 90px;
   resize: none;
 }
