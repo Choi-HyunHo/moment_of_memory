@@ -63,18 +63,30 @@ const Detail = () => {
 
     return (
       <div>
-        <Header
-          text={data.title}
-          left={<Button text={'←'} />}
-          right={<Button type={'cancel'} text={'삭제'} />}
-        />
+        <Header text={data.title} />
 
-        <section>
-          <div>
-            <h4></h4>
-            <img src={curEmotion.emotion_img} />
+        <div className="curMemory">
+          <section>
+            <div className="curEmotion_img">
+              <h3>그 때의 감정</h3>
+              <img src={curEmotion.emotion_img} />
+            </div>
+          </section>
+
+          <section className="curMemory_info">
+            <div className="curMemory_info_contnet1">
+              <p>{data.content1}</p>
+            </div>
+            <div className="curMemory_info_content2">
+              <div>{data.content2}</div>
+            </div>
+          </section>
+
+          <div className="curMemory_info_button">
+            <Button text={'←'} onClick={() => navigate('/main')} />
+            <Button type={'cancel'} text={'삭제'} />
           </div>
-        </section>
+        </div>
       </div>
     );
   }
