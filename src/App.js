@@ -14,7 +14,7 @@ export const AppActivity = React.createContext();
 const dummyData = [
   {
     id: 1,
-    title: '라라랜드-1',
+    title: '라라랜드',
     content1: '저녁 파티',
     content2: '재밌다',
     emotion: 5,
@@ -22,7 +22,7 @@ const dummyData = [
   },
   {
     id: 2,
-    title: '미스터 션샤인-2',
+    title: '미스터 션샤인',
     content1: '저격 장면',
     content2: '재밌다',
     emotion: 4,
@@ -30,7 +30,7 @@ const dummyData = [
   },
   {
     id: 3,
-    title: '스물다섯-3',
+    title: '스물다섯',
     content1: '바다 놀러간 장면',
     content2: '재밌다',
     emotion: 3,
@@ -38,7 +38,7 @@ const dummyData = [
   },
   {
     id: 4,
-    title: '도둑들-4',
+    title: '도둑들',
     content1: '저녁 파티',
     content2: '재밌다',
     emotion: 2,
@@ -46,7 +46,7 @@ const dummyData = [
   },
   {
     id: 5,
-    title: '승리호-5',
+    title: '승리호',
     content1: '저녁 파티',
     content2: '재밌다',
     emotion: 1,
@@ -124,7 +124,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/main" element={<Main />} />
-              <Route path="/detail" element={<Detail />} />
+              <Route path="/detail/:id" element={<Detail />} />
               <Route path="/new" element={<New />} />
               <Route path="/modify/:id" element={<Modify />} />
             </Routes>

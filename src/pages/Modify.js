@@ -21,7 +21,8 @@ const Modify = () => {
       if (targetItem) {
         setOriginData(targetItem);
       } else {
-        navigate('/', { replace: true });
+        alert('존재하지 않는 기억 입니다.');
+        navigate('/main', { replace: true });
       }
     }
   }, [id, memoryData]);
