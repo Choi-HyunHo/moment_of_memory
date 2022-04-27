@@ -82,7 +82,7 @@ const Detail = () => {
           </section>
 
           <section className="curMemory_info">
-            <div className="curMemory_info_contnet1">
+            <div className="curMemory_info_content1">
               <p>{data.content1}</p>
             </div>
             <div className="curMemory_info_content2">

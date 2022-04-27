@@ -415,7 +415,7 @@ textarea {
   padding-top: 60px;
 }
 
-.curMemory_info_contnet1 {
+.curMemory_info_content1 {
   background-color: #ececec;
   width: 100%;
   height: 170px;
@@ -526,5 +526,25 @@ textarea {
   .EmotionItem span {
     font-size: 13px;
     margin-bottom: 10px;
+  }
+
+  .curEmotion_img h3 {
+    padding: 20px 0;
+  }
+
+  .curMemory_info {
+    padding-top: 30px;
+  }
+
+  .curMemory_info_content1 {
+    height: 150px;
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .curMemory_info_content2 {
+    font-size: 14px;
+    height: 70px;
+    padding: 24px 20px;
   }
 }
