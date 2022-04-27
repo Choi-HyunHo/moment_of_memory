@@ -113,7 +113,6 @@ const MemoryEditor = ({ isEdit, originData }) => {
         <input
           required
           className="input_title"
-          minlength="1"
           type="text"
           value={title}
           onChange={(e) => {

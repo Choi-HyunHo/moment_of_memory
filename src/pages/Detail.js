@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AppDataContext } from '../App';
+import { AppActivity, AppDataContext } from '../App';
 import Header from '../components/Header';
 import Button from '../components/Button';
 
@@ -35,6 +35,7 @@ const emotionList = [
 const Detail = () => {
   const navigate = useNavigate();
   const memoryData = useContext(AppDataContext);
+  const { onRemove } = useContext(AppActivity);
   const { id } = useParams();
 
   const [data, setData] = useState();
@@ -52,6 +53,13 @@ const Detail = () => {
     }
     console.log(targetItem);
   }, [id, memoryData]);
+
+  const handleRemove = () => {
+    if (window.confirm('정말 삭제 하시겠습니까?')) {
+      onRemove(data.id);
+      navigate('/main', { replace: true });
+    }
+  };
 
   if (!data) {
     return <div>기억이 없습니다.</div>;
@@ -84,7 +92,7 @@ const Detail = () => {
 
           <div className="curMemory_info_button">
             <Button text={'←'} onClick={() => navigate('/main')} />
-            <Button type={'cancel'} text={'삭제'} />
+            <Button type={'cancel'} text={'삭제'} onClick={handleRemove} />
           </div>
         </div>
       </div>

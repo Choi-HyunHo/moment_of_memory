@@ -11,7 +11,7 @@ const sortOptionList = [
 const emotionOptionList = [
   { value: 'all', name: '전부 다' },
   { value: 'good', name: '좋은 기억' },
-  { value: 'bad', name: '아쉬운 기억' },
+  { value: 'bad', name: '슬픈 기억' },
 ];
 
 const ControlMenu = ({ value, onChange, optionList }) => {

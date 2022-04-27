@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AppDataContext } from '../App';
+import { AppActivity } from '../App';
 import MemoryEditor from '../components/MemoryEditor';
 
 const Modify = () => {

@@ -72,6 +72,11 @@ const reducer = (state, action) => {
       break;
     }
 
+    case 'REMOVE': {
+      newState = state.filter((list) => list.id !== action.targetId);
+      break;
+    }
+
     default:
       return state;
   }
@@ -116,9 +121,14 @@ function App() {
     });
   };
 
+  // 삭제
+  const onRemove = (targetId) => {
+    dispatch({ type: 'REMOVE', targetId });
+  };
+
   return (
     <AppDataContext.Provider value={data}>
-      <AppActivity.Provider value={{ onCreate, onEdit }}>
+      <AppActivity.Provider value={{ onCreate, onEdit, onRemove }}>
         <BrowserRouter>
           <div className="App">
             <Routes>
