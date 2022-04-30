@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import React, { useRef, useReducer } from 'react';
+import React, { useRef, useReducer, useEffect } from 'react';
 
 import Home from './pages/Home';
 import Main from './pages/Main';
@@ -57,6 +57,10 @@ export const AppActivity = React.createContext();
 const reducer = (state, action) => {
   let newState = [];
   switch (action.type) {
+    case 'INIT': {
+      return action.data;
+    }
+
     case 'CREATE': {
       const newItem = {
         ...action.data,
@@ -89,6 +93,19 @@ const reducer = (state, action) => {
 function App() {
   // 전역으로 사용할 data
   const [data, dispatch] = useReducer(reducer, []);
+
+  useEffect(() => {
+    const localData = localStorage.getItem('memory');
+
+    if (localData) {
+      const memoryItem = JSON.parse(localData).sort(
+        (a, b) => parseInt(b.id) - parseInt(a.id)
+      );
+
+      dataId.current = parseInt(memoryItem[0].id) + 1;
+      dispatch({ type: 'INIT', data: memoryItem });
+    }
+  }, []);
 
   const dataId = useRef(0);
 
