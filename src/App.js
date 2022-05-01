@@ -11,47 +11,15 @@ import Detail from './pages/Detail';
 export const AppDataContext = React.createContext();
 export const AppActivity = React.createContext();
 
-// const dummyData = [
+//  const dummyData = [
 //   {
 //     id: 1,
-//     title: '라라랜드',
-//     content1: '저녁 파티',
-//     content2: '재밌다',
+//     title: '에러 방지를 위한 데이터',
+//     content1: '에러 방지',
+//     content2: '에러 방지',
 //     emotion: 5,
 //     date: 1650519198811,
-//   },
-//   {
-//     id: 2,
-//     title: '미스터 션샤인',
-//     content1: '저격 장면',
-//     content2: '재밌다',
-//     emotion: 4,
-//     date: 1650519198812,
-//   },
-//   {
-//     id: 3,
-//     title: '스물다섯',
-//     content1: '바다 놀러간 장면',
-//     content2: '재밌다',
-//     emotion: 3,
-//     date: 1650519198813,
-//   },
-//   {
-//     id: 4,
-//     title: '도둑들',
-//     content1: '저녁 파티',
-//     content2: '재밌다',
-//     emotion: 2,
-//     date: 1650519198814,
-//   },
-//   {
-//     id: 5,
-//     title: '승리호',
-//     content1: '저녁 파티',
-//     content2: '재밌다',
-//     emotion: 1,
-//     date: 1650519198815,
-//   },
+//   }
 // ];
 
 const reducer = (state, action) => {
@@ -91,6 +59,8 @@ const reducer = (state, action) => {
 };
 
 function App() {
+  const dataId = useRef(1);
+
   // 전역으로 사용할 data
   const [data, dispatch] = useReducer(reducer, []);
 
@@ -101,13 +71,12 @@ function App() {
       const memoryItem = JSON.parse(localData).sort(
         (a, b) => parseInt(b.id) - parseInt(a.id)
       );
-
-      dataId.current = parseInt(memoryItem[0].id) + 1;
-      dispatch({ type: 'INIT', data: memoryItem });
+      if (memoryItem.length >= 1) {
+        dataId.current = parseInt(memoryItem[0].id) + 1;
+        dispatch({ type: 'INIT', data: memoryItem });
+      }
     }
   }, []);
-
-  const dataId = useRef(0);
 
   // 추가
   const onCreate = (date, title, content1, content2, emotion) => {

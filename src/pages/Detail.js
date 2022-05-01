@@ -37,8 +37,13 @@ const Detail = () => {
   const memoryData = useContext(AppDataContext);
   const { onRemove } = useContext(AppActivity);
   const { id } = useParams();
-
   const [data, setData] = useState();
+
+  // 타이틀 바꾸기
+  useEffect(() => {
+    const titleElement = document.querySelector('title');
+    titleElement.innerHTML = `기억의 순간 - ${id}번 기억`;
+  }, []);
 
   useEffect(() => {
     const targetItem = memoryData.find(

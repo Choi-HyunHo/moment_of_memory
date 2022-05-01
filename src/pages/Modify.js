@@ -14,6 +14,11 @@ const Modify = () => {
   const [originData, setOriginData] = useState();
 
   useEffect(() => {
+    const titleElement = document.querySelector('title');
+    titleElement.innerHTML = `기억의 순간 - ${id}번 수정`;
+  });
+
+  useEffect(() => {
     if (memoryData.length >= 1) {
       const targetItem = memoryData.find(
         (list) => parseInt(list.id) === parseInt(id)

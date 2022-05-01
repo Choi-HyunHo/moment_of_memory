@@ -90,6 +90,13 @@ const MemoryEditor = ({ isEdit, originData }) => {
     }
   };
 
+  // const handleRemove = () => {
+  //   if (window.confirm('정말 삭제 하시겠습니까?')) {
+  //     onRemove(originData.id);
+  //     navigate('/main', { replace: true });
+  //   }
+  // };
+
   return (
     <div className="MemoryEditor">
       <Header text={isEdit ? '수정' : 'Memory'} />
@@ -170,6 +177,9 @@ const MemoryEditor = ({ isEdit, originData }) => {
           onClick={() => navigate('/main')}
         />
         <Button type={'success'} text={'작성'} onClick={handleSubmit} />
+        {/* {isEdit ? (
+          <Button type={'cancel'} text={'삭제'} onClick={handleRemove} />
+        ) : null} */}
       </footer>
     </div>
   );
